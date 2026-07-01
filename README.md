@@ -187,3 +187,28 @@ MAIL_FROM_NAME="Mini-Auth-Project"
 ## Dark Mode
 
 Klik ikon bulan/matahari di navbar. Tersimpan otomatis ke localStorage.
+
+
+## Flow Instalasi
+1. Clone repo
+   git clone https://github.com/MZeidane123/Mini-Authentication-Project.git
+   cd Mini-Authentication-Project
+
+2. Buat .env dari template
+   copy .env.example .env
+
+3. Install dependencies PHP (via Docker)
+   docker run --rm -v ${PWD}:/app composer:latest composer install
+
+4. Jalankan container
+   vendor/bin/sail up -d
+
+5. Generate key
+   vendor/bin/sail artisan key:generate
+
+6. Jalankan migrasi
+   vendor/bin/sail artisan migrate
+
+7. Install & build frontend
+   vendor/bin/sail npm install
+   vendor/bin/sail npm run build
